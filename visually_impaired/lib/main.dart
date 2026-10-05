@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:vibration/vibration.dart';
-import 'package:speech_to_text/speech_to_text.dart' as stt;
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
+import 'screens/ocr_screen.dart';
+import 'screens/voice_screen.dart';
+import 'screens/location_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -95,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       label: "Đọc Ảnh",
                       color: Colors.blueAccent,
                       onTap: () => _onFeatureTap("OCR", "Đang mở máy ảnh để đọc chữ", () {
-                        // Navigate to OCR
+                        Navigator.push(context, MaterialPageRoute(builder: (_) => const OcrScreen()));
                       }),
                     ),
                     const SizedBox(width: 12),
@@ -104,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       label: "Giọng Nói",
                       color: Colors.greenAccent.shade700,
                       onTap: () => _onFeatureTap("Voice", "Đang mở chức năng nhận dạng giọng nói", () {
-                        // Navigate to Voice
+                        Navigator.push(context, MaterialPageRoute(builder: (_) => const VoiceScreen()));
                       }),
                     ),
                   ],
@@ -119,7 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       label: "Định Vị",
                       color: Colors.orangeAccent,
                       onTap: () => _onFeatureTap("Location", "Đang lấy vị trí của bạn", () {
-                        // Get location
+                        Navigator.push(context, MaterialPageRoute(builder: (_) => const LocationScreen()));
                       }),
                     ),
                     const SizedBox(width: 12),
